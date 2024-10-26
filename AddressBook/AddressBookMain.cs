@@ -13,81 +13,55 @@ namespace AddressBook.AddressBook
         public static void Main(String[] args)
         {
             Console.WriteLine("Welcome to address book");
-            AddressBook addressbook = new AddressBook();
+            CrudOperation crud = new CrudOperation();
+            AddressBookManager addressBookManager = new AddressBookManager();
             bool exit = false;
-
             while (!exit)
             {
                 Console.WriteLine("\nMenu:");
-                Console.WriteLine("1. Add Contact");
-                Console.WriteLine("2. Edit Contact");
-                Console.WriteLine("3. Delete Contact");
-                Console.WriteLine("4. Print Contact");
+                Console.WriteLine("1. Add Address Book");
+                Console.WriteLine("2. Select Address Book");
+                Console.WriteLine("3. Display Address Book");
+                Console.WriteLine("4. Delete Address Book");
                 Console.WriteLine("5. Exit");
                 Console.WriteLine("Choose an option: ");
                 String choice = Console.ReadLine();
-
                 switch (choice)
                 {
                     case "1":
-                        bool addContacts = true;
-                        while (addContacts)
-                        {
-                            Contact newContact = new Contact();
-                            Console.WriteLine("Enter First Name:");
-                            newContact.firstName = Console.ReadLine();
-                            Console.WriteLine("Enter Last Name:");
-                            newContact.lastName = Console.ReadLine();
-                            Console.WriteLine("Enter Address: ");
-                            newContact.address = Console.ReadLine();
-                            Console.WriteLine("Enter City: ");
-                            newContact.city = Console.ReadLine();
-                            Console.WriteLine("Enter State: ");
-                            newContact.state = Console.ReadLine();
-                            Console.WriteLine("Enter Zip Code :");
-                            newContact.zip = Console.ReadLine();
-                            Console.WriteLine("Enter Phone Number");
-                            newContact.phonenumber = Console.ReadLine();
-                            Console.WriteLine("Enter Email: ");
-                            newContact.email = Console.ReadLine();
-                            addressbook.addContact(newContact);
-                           
-                            Console.WriteLine("Do you want to add another contact ? (Yes/No) ");
-                            addContacts = Console.ReadLine().Trim().ToLower() == "yes";
-                            
-                        }                    
+                        Console.WriteLine("Enter name of the new Address Book: ");
+                        string bookname = Console.ReadLine();
+                        addressBookManager.addAddressBook(bookname);
                         break;
-
                     case "2":
-                        Console.WriteLine("Enter the first name of contact to edit:");
-                        String firstName = Console.ReadLine();
-                        Console.WriteLine("Enter Last name of contact to edit");
-                        String lastName = Console.ReadLine();
-                        addressbook.editContact(firstName, lastName);
+                        Console.WriteLine("Enter the name of the Address Book to select: ");
+                        string selectbookname = Console.ReadLine();
+                        AddressBook selectedBook = addressBookManager.getAddressBook(selectbookname);
+                        if (selectedBook != null)
+                        {
+                           crud.ManageAddressBook(selectedBook);
+                        }
                         break;
-
                     case "3":
-                        Console.WriteLine("Enter the first name of contact to edit:");
-                        firstName = Console.ReadLine();
-                        Console.WriteLine("Enter Last name of contact to edit");
-                        lastName = Console.ReadLine();
-                        addressbook.deleteContact(firstName, lastName);
+                        addressBookManager.displayAddressBooks();
                         break;
 
                     case "4":
-                        addressbook.printContact();
+                        Console.WriteLine("Enter the name of the Address Book to delete:");
+                        String deleteBookName = Console.ReadLine();
+                        addressBookManager.deleteAddressBook(deleteBookName);
                         break;
 
                     case "5":
                         exit = true;
-                        Console.WriteLine("Exiting the application..");
                         break;
-
                     default:
-                        Console.WriteLine("Invalid Choice.Please Try Again");
+                        Console.WriteLine("Invalid Option.Please try again.");
                         break;
                 }
             }
         }
+
     }
 }
+    
