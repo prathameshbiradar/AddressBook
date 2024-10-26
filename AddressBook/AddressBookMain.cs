@@ -23,6 +23,7 @@ namespace AddressBook.AddressBook
                 Console.WriteLine("2. Select Address Book");
                 Console.WriteLine("3. Display Address Book");
                 Console.WriteLine("4. Delete Address Book");
+                Console.WriteLine("4. Search Contacts");
                 Console.WriteLine("5. Exit");
                 Console.WriteLine("Choose an option: ");
                 String choice = Console.ReadLine();
@@ -53,6 +54,24 @@ namespace AddressBook.AddressBook
                         break;
 
                     case "5":
+                        Console.WriteLine("Enter City to search: ");
+                        String searchCity = Console.ReadLine();
+                        Console.WriteLine("Enter City to search: ");
+                        String searchState = Console.ReadLine();
+                        var searchResult = addressBookManager.searchContact(string.IsNullOrEmpty(searchCity) ? null : searchCity,
+                                            string.IsNullOrEmpty(searchState) ? null : searchState);
+                        if (searchResult.Any())
+                        {
+                            Console.WriteLine("Search Results: ");
+                            foreach (var contact in searchResult)
+                            {
+                                Console.WriteLine($"Name: {contact.firstName} {contact.lastName}, City: {contact.city}, State: {contact.state}");
+                            }
+
+                        }
+                        break;
+
+                    case "6":
                         exit = true;
                         break;
                     default:
