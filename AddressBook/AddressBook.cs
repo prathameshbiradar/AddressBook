@@ -63,5 +63,24 @@ namespace AddressBook.AddressBook
                 Console.WriteLine("Contact not found");
             }
         }
+        public void deleteContact(string firstName, string lastName)
+        {
+            if (contacts == null)
+            {
+                Console.WriteLine("Contact List is Empty");
+            }
+            var contact = contacts.FirstOrDefault(c => c.firstName.Equals(firstName, StringComparison.OrdinalIgnoreCase) &&
+                         c.lastName.Equals(lastName, StringComparison.OrdinalIgnoreCase));
+
+            if (contact != null)
+            {
+                contacts.Remove(contact);
+                Console.WriteLine("Contact deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Contact not found.");
+            }
+        }
     }
 }
