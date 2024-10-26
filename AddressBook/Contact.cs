@@ -16,6 +16,15 @@ namespace AddressBook.AddressBook
             public String zip { get; set; }
             public String phonenumber { get; set; }
             public String email { get; set; }
+        public override bool Equals(object obj)
+        {
+            if (obj is Contact otherContact)
+            {
+                return firstName.Equals(otherContact.firstName, StringComparison.OrdinalIgnoreCase) &&
+                       lastName.Equals(otherContact.lastName, StringComparison.OrdinalIgnoreCase);
+            }
+            return false;
+        }
 
       }
 }

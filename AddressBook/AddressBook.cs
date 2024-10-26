@@ -16,8 +16,16 @@ namespace AddressBook.AddressBook
 
         public void addContact(Contact contact)
         {
-            contacts.Add(contact);
-            Console.WriteLine("Contact added Successfully");
+            if (!contacts.Contains(contact))
+            {
+                contacts.Add(contact);
+                Console.WriteLine("Contact added Successfully");
+            }
+            else
+            {
+                    Console.WriteLine("Duplicate contact found! Contact not added.");
+            }
+            
         }
         public void printContact()
         {
