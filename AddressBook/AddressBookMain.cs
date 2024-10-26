@@ -21,33 +21,41 @@ namespace AddressBook.AddressBook
                 Console.WriteLine("\nMenu:");
                 Console.WriteLine("1. Add Contact");
                 Console.WriteLine("2. Edit Contact");
-                Console.WriteLine("3. Print Contact");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("3. Delete Contact");
+                Console.WriteLine("4. Print Contact");
+                Console.WriteLine("5. Exit");
                 Console.WriteLine("Choose an option: ");
                 String choice = Console.ReadLine();
 
                 switch (choice)
                 {
                     case "1":
-                        Contact newContact = new Contact();
-                        Console.WriteLine("Enter First Name:");
-                        newContact.firstName = Console.ReadLine();
-                        Console.WriteLine("Enter Last Name:");
-                        newContact.lastName = Console.ReadLine();
-                        Console.WriteLine("Enter Address: ");
-                        newContact.address = Console.ReadLine();
-                        Console.WriteLine("Enter City: ");
-                        newContact.city = Console.ReadLine();
-                        Console.WriteLine("Enter State: ");
-                        newContact.state = Console.ReadLine();
-                        Console.WriteLine("Enter Zip Code :");
-                        newContact.zip = Console.ReadLine();
-                        Console.WriteLine("Enter Phone Number");
-                        newContact.phonenumber = Console.ReadLine();
-                        Console.WriteLine("Enter Email: ");
-                        newContact.email = Console.ReadLine();
-                        
-                        addressbook.addContact(newContact);
+                        bool addContacts = true;
+                        while (addContacts)
+                        {
+                            Contact newContact = new Contact();
+                            Console.WriteLine("Enter First Name:");
+                            newContact.firstName = Console.ReadLine();
+                            Console.WriteLine("Enter Last Name:");
+                            newContact.lastName = Console.ReadLine();
+                            Console.WriteLine("Enter Address: ");
+                            newContact.address = Console.ReadLine();
+                            Console.WriteLine("Enter City: ");
+                            newContact.city = Console.ReadLine();
+                            Console.WriteLine("Enter State: ");
+                            newContact.state = Console.ReadLine();
+                            Console.WriteLine("Enter Zip Code :");
+                            newContact.zip = Console.ReadLine();
+                            Console.WriteLine("Enter Phone Number");
+                            newContact.phonenumber = Console.ReadLine();
+                            Console.WriteLine("Enter Email: ");
+                            newContact.email = Console.ReadLine();
+                            addressbook.addContact(newContact);
+                           
+                            Console.WriteLine("Do you want to add another contact ? (Yes/No) ");
+                            addContacts = Console.ReadLine().Trim().ToLower() == "yes";
+                            
+                        }                    
                         break;
 
                     case "2":
@@ -59,10 +67,18 @@ namespace AddressBook.AddressBook
                         break;
 
                     case "3":
-                        addressbook.printContact();
+                        Console.WriteLine("Enter the first name of contact to edit:");
+                        firstName = Console.ReadLine();
+                        Console.WriteLine("Enter Last name of contact to edit");
+                        lastName = Console.ReadLine();
+                        addressbook.deleteContact(firstName, lastName);
                         break;
 
                     case "4":
+                        addressbook.printContact();
+                        break;
+
+                    case "5":
                         exit = true;
                         Console.WriteLine("Exiting the application..");
                         break;
@@ -72,13 +88,6 @@ namespace AddressBook.AddressBook
                         break;
                 }
             }
-
-
-           
-            
-
-            
-
         }
     }
 }
