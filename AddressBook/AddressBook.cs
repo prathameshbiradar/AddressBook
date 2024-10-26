@@ -54,8 +54,7 @@ namespace AddressBook.AddressBook
         {
             foreach (var i in contacts)
             {
-                Console.WriteLine($"name:{i.firstName} {i.lastName}, Address: {i.address}," +
-                $" City: {i.city}, State: {i.state}, Zip: {i.zip}, PhoneNumber: {i.phonenumber}, Email: {i.email} ");
+                Console.WriteLine(i.ToString());
             }
         }
         public void editContact(String firstName, String lastName)
@@ -130,5 +129,28 @@ namespace AddressBook.AddressBook
             }
             return new List<Contact>(); 
         }
+        public int GetContactCountByCity(string city)
+        {
+            if (contactsByCity.TryGetValue(city, out List<Contact> contactsInCity))
+            {
+                return contactsInCity.Count;
+            }
+            return 0; 
+        }
+
+        public int GetContactCountByState(string state)
+        {
+            if (contactsByState.TryGetValue(state, out List<Contact> contactsInState))
+            {
+                return contactsInState.Count;
+            }
+            return 0; 
+        }
+        public void sortContacts()
+        {
+            contacts = contacts.OrderBy(c => c.firstName).ThenBy(c => c.lastName).ToList();
+            Console.WriteLine("Contacts sorted alphabetically by name.");
+        }
+
     }
 }
