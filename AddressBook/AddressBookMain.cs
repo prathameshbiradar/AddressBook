@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,23 +14,28 @@ namespace AddressBook.AddressBook
         {
             Console.WriteLine("Welcome to address book");
 
-            List<Contact> contacts = new List<Contact>();
-            Contact obj = new Contact()
-            {
-                firstName = "Prathmesh",
-                lastName = "Biradar",
-                address = "Karve nagar",
-                city = "Pune",
-                state = "Maharashtra",
-                zip = "422012",
-                phonenumber = "7843038332",
-                email = "psbiradar948@gmail.com"
-            };
-            contacts.Add(obj);
-            foreach (var i in contacts)
-            {
-                Console.WriteLine($"name:{i.firstName} {i.lastName}, Address: {i.address}, City: {i.city}, State: {i.state}, Zip: {i.zip}, PhoneNumber: {i.phonenumber}, Email: {i.email} ");
-            }
+            Contact newContact = new Contact();
+            AddressBook addressbook = new AddressBook();
+
+            //Console.WriteLine("Enter First Name:");
+            //newContact.firstName = Console.ReadLine();
+            //Console.WriteLine("Enter Last Name:");
+            //newContact.lastName = Console.ReadLine();
+            //Console.WriteLine("Enter Address: ");
+            //newContact.address = Console.ReadLine();
+            //Console.WriteLine("Enter City: ");
+            //newContact.city = Console.ReadLine();
+            //Console.WriteLine("Enter State: ");
+            //newContact.state = Console.ReadLine();
+            //Console.WriteLine("Enter Zip Code :");
+            //newContact.zip = Console.ReadLine();
+            //Console.WriteLine("Enter Phone Number");
+            //newContact.phonenumber = Console.ReadLine();
+            //Console.WriteLine("Enter Email: ");
+            //newContact.email = Console.ReadLine();
+
+            //addressbook.addContact(newContact);
+            addressbook.printContact();
 
         }
     }
