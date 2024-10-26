@@ -151,6 +151,21 @@ namespace AddressBook.AddressBook
             contacts = contacts.OrderBy(c => c.firstName).ThenBy(c => c.lastName).ToList();
             Console.WriteLine("Contacts sorted alphabetically by name.");
         }
+        public void sortContactsByCity()
+        {
+            contacts = contacts.OrderBy(c => c.city).ThenBy(c => c.firstName).ThenBy(c=>c.lastName).ToList();
+            Console.WriteLine("Contacts sorted by city");
+        }
+        public void sortContactsByState()
+        {
+            contacts = contacts.OrderBy(c=>c.state).ThenBy(c => c.firstName).ThenBy(c => c.lastName).ToList();
+            Console.WriteLine("Contacts sorted by state");
+        }
+        public void sortContactsByZipCode()
+        {
+            contacts = contacts.OrderBy(c=>c.zip).ThenBy(c => c.firstName).ThenBy(c => c.lastName).ToList();
+            Console.WriteLine("Contacts sorted by zipcode");
+        }
 
     }
 }
