@@ -1,0 +1,7 @@
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\obj\Debug\AddressBook.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\obj\Debug\AddressBook.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\bin\Debug\AddressBook.exe.config
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\bin\Debug\AddressBook.exe
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\bin\Debug\AddressBook.pdb
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\obj\Debug\AddressBook.exe
+C:\Users\hp\source\repos\AddressBook_Application\AddressBook\obj\Debug\AddressBook.pdb
