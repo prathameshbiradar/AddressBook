@@ -18,7 +18,9 @@ namespace AddressBook.AddressBook
                 Console.WriteLine("2. Edit Contact");
                 Console.WriteLine("3. Delete Contact");
                 Console.WriteLine("4. Print Contact");
-                Console.WriteLine("5. Go Back");
+                Console.WriteLine("5. view contact by city");
+                Console.WriteLine("6. view contact by state");
+                Console.WriteLine("7. Go Back");
                 Console.WriteLine("Choose an option: ");
                 String choice = Console.ReadLine();
 
@@ -74,6 +76,48 @@ namespace AddressBook.AddressBook
                         break;
 
                     case "5":
+                        Console.WriteLine("Enter city to view contacts: ");
+                        string city = Console.ReadLine();
+                        var contactInCity = selectedBook.GetContactsByCity(city);
+                        int cityCount = selectedBook.GetContactCountByCity(city);
+                        Console.WriteLine($"Total contacts in city {city}: {cityCount}");
+                        if (contactInCity.Any())
+                        {
+                            Console.WriteLine("Contacts in city " + city + ":");
+                            foreach (var contact in contactInCity)
+                            {
+                                Console.WriteLine(contact);
+                            }
+
+                        }
+                        else 
+                        {
+                            Console.WriteLine("No contacts found in city " + city);
+                        }
+                        break;
+
+                    case "6":
+                        Console.WriteLine("Enter state to view contacts: ");
+                        string state = Console.ReadLine();
+                        var contactsInState = selectedBook.GetContactsByState(state);
+                        int stateCount = selectedBook.GetContactCountByState(state);
+                        Console.WriteLine($"Total contacts in state {state}: {stateCount}");
+                        if (contactsInState.Any())
+                        {
+                            Console.WriteLine("Contacts in state " + state + ":");
+                            foreach (var contact in contactsInState)
+                            {
+                                Console.WriteLine(contact);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No contacts found in state " + state);
+                        }
+                        break;
+
+
+                    case "7":
                         exit = false;
                         break;
 
