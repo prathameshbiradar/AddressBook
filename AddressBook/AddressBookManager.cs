@@ -59,6 +59,18 @@ namespace AddressBook.AddressBook
                 Console.WriteLine($"{book.Key}");
             }
         }
+        public List<Contact> searchContact(string city=null, string state=null)
+        {
+            List<Contact> results = new List<Contact>();
+
+            foreach (var addressBook in addressBooks.Values)
+            {
+                results.AddRange(addressBook.contacts.Where(c =>
+                (city == null || c.city.Equals(city, StringComparison.OrdinalIgnoreCase)) ||
+                (state == null || c.state.Equals(state, StringComparison.OrdinalIgnoreCase))).ToList());
+            }
+            return results;
+        }
 
     }
 }
