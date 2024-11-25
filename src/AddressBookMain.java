@@ -12,7 +12,8 @@ public class AddressBookMain {
             System.out.println("Address Book Menu:");
             System.out.println("1. Add New Contact");
             System.out.println("2. Display Contacts");
-            System.out.println("3. Exit");
+            System.out.println("3. Edit Contact");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             switch(choice)
@@ -43,6 +44,16 @@ public class AddressBookMain {
                     addressBook.displayAllContacts();
                     break;
                 case 3:
+                    System.out.println("\nEnter the First or Last Name of the contact to edit: ");
+                    String nameToEdit = sc.nextLine();
+
+
+                    Contact contactToEdit = addressBook.findContactByName(nameToEdit);
+
+
+                    addressBook.editContact(contactToEdit);
+                    break;
+                case 4:
                     // Exit the program
                     System.out.println("Exiting Address Book...");
                     sc.close();
