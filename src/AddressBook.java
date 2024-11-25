@@ -112,5 +112,18 @@ public class AddressBook {
             System.out.println("Contact not found.");
         }
     }
+    public boolean deleteContactByName(String name) {
+        Contact contactToDelete = findContactByName(name);
+        if (contactToDelete != null)
+        {
+            contacts.remove(contactToDelete);
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
