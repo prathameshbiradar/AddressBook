@@ -3,15 +3,17 @@
 
         private String firstName;
         private String lastName;
+        private String address;
         private String city;
         private String state;
         private String email;
-        private long phoneNumber;
-        private int pinCode;
+        private String phoneNumber;
+        private String pinCode;
 
-        public Contact(String firstName, String lastName, String city, String state, String email, long phoneNumber, int pinCode) {
+        public Contact(String firstName, String lastName,String address, String city, String state, String email, String phoneNumber, String pinCode) {
             this.firstName = firstName;
             this.lastName = lastName;
+            this.address=address;
             this.city = city;
             this.state = state;
             this.email = email;
@@ -33,6 +35,13 @@
 
         public void setLastName(String lastName) {
             this.lastName = lastName;
+        }
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
         }
 
         public String getCity() {
@@ -59,19 +68,19 @@
             this.email = email;
         }
 
-        public long getPhoneNumber() {
+        public String getPhoneNumber() {
             return phoneNumber;
         }
 
-        public void setPhoneNumber(long phoneNumber) {
+        public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
 
-        public int getPinCode() {
+        public String getPinCode() {
             return pinCode;
         }
 
-        public void setPinCode(int pinCode) {
+        public void setPinCode(String pinCode) {
             this.pinCode = pinCode;
         }
 
@@ -80,6 +89,7 @@
             return "Contact{" +
                     "firstName='" + firstName + '\'' +
                     ", lastName='" + lastName + '\'' +
+                    ", address='" + address + '\'' +
                     ", city='" + city + '\'' +
                     ", state='" + state + '\'' +
                     ", email='" + email + '\'' +
