@@ -17,10 +17,16 @@ public class AddressBookMain {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
+            sc.nextLine();
             switch(choice)
             {
                 case 1:
-                    System.out.println("\nEnter First Name: ");
+
+                    String addMoreContact = "y";
+                    while(addMoreContact.equalsIgnoreCase("y"))
+                {
+
+                    System.out.println("Enter First Name: ");
                     String firstName = sc.nextLine();
                     System.out.println("Enter Last Name: ");
                     String lastName = sc.nextLine();
@@ -40,7 +46,11 @@ public class AddressBookMain {
 
                     // Add the contact to the address book
                     addressBook.addContact(newContact);
-                    break;
+                    System.out.println("Do you want to add more contact? (y/n): ");
+                    addMoreContact = sc.nextLine();
+                }
+                        break;
+
                 case 2:
                     addressBook.displayAllContacts();
                     break;
